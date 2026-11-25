@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nutribuddi — Eat smart. Live better. Laugh a little.</title>
+<style>
+:root{--green:#246b46;--dark:#163b2b;--lime:#c9f27b;--cream:#f7f8f1;--card:#fff;--ink:#1b2b22;--muted:#6f7d73;--line:#e7ece5;--orange:#ffbc73}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:13px;padding:12px 16px;font-weight:750;background:var(--green);color:#fff;transition:.18s}button:hover{transform:translateY(-1px);filter:brightness(1.04)}button.secondary{background:#edf4ee;color:var(--green)}button.ghost{background:transparent;color:var(--green);border:1px solid var(--line)}button.small{padding:8px 11px;font-size:13px}.wrap{max-width:1120px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:950;font-size:22px;color:var(--green);display:flex;align-items:center;gap:9px}.brand .logo{width:38px;height:38px;background:var(--lime);border-radius:12px;display:grid;place-items:center}.topright{display:flex;gap:8px;align-items:center}.layout{display:grid;grid-template-columns:220px 1fr;gap:20px;margin-top:22px}.sidebar{position:sticky;top:12px;height:max-content;background:#fff;border:1px solid var(--line);padding:12px;border-radius:20px}.nav{display:flex;flex-direction:column;gap:5px}.nav button{background:transparent;color:#506457;text-align:left;font-weight:700}.nav button.active,.nav button:hover{background:#edf5ee;color:var(--green)}main{min-width:0}.hero{background:linear-gradient(120deg,#163b2b,#28694a);color:white;border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden}.hero h1{font-size:clamp(25px,4vw,39px);line-height:1.12;margin:8px 0}.hero p{color:#d9e9dc;max-width:550px}.mascot{font-size:90px;filter:drop-shadow(0 7px 3px #0002);animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}.joke{background:#fff6e7;color:#704d18;border:1px solid #f4dfbd;border-radius:16px;padding:14px;margin-top:14px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px;gap:12px}.sectionhead h2{margin:0;font-size:21px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:17px;box-shadow:0 3px 12px #173d2b05}.stat{font-size:27px;font-weight:900;margin:8px 0}.sub{font-size:13px;color:var(--muted)}.emoji{font-size:27px}.progress{height:9px;background:#edf1ec;border-radius:30px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#58a871,#c9f27b);border-radius:30px}.pill{display:inline-flex;padding:6px 9px;border-radius:99px;background:#eef6ed;color:var(--green);font-size:12px;font-weight:800}.content{display:none}.content.active{display:block}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}.field label{font-weight:750;font-size:14px}.field input,.field select{border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink)}.surveyq{padding:18px;border:1px solid var(--line);border-radius:16px;background:white;margin:12px 0}.surveyq label{font-weight:800;display:block;margin-bottom:10px}.choices{display:flex;flex-wrap:wrap;gap:8px}.choices button{background:#edf4ee;color:var(--green);border:1px solid #e2ede3}.choices button.chosen{background:var(--green);color:white}.table{width:100%;border-collapse:collapse}.table td,.table th{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:14px}.badge{font-size:30px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:12px 18px;border-radius:15px;display:none;z-index:9}.modal{position:fixed;inset:0;background:#0e2319aa;display:none;align-items:center;justify-content:center;padding:16px;z-index:10}.modalbox{max-width:520px;width:100%;background:white;border-radius:22px;padding:22px}.footer{color:var(--muted);font-size:12px;margin:22px 0;text-align:center}.quizopt{display:block;width:100%;margin:7px 0;text-align:left;background:#edf4ee;color:var(--green)}.hide{display:none!important}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.sidebar{position:static}.nav{display:grid;grid-template-columns:repeat(4,1fr)}.nav button{text-align:center;padding:9px 5px;font-size:12px}.hero{padding:20px}.mascot{font-size:70px}.grid{grid-template-columns:1fr 1fr}.grid.two{grid-template-columns:1fr}.top{flex-wrap:wrap}.formrow{grid-template-columns:1fr}}
+@media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.hero{gap:8px}.mascot{font-size:55px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<div class="brand"><span class="logo">🥦</span> Nutribuddi</div>
+<div class="topright"><select id="language" aria-label="Language"><option value="en">🌐 English</option><option value="kn">ಕನ್ನಡ</option><option value="hi">हिन्दी</option></select><button class="secondary small" id="profileBtn">👤 Guest</button></div>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="nav">
+<button class="active" data-page="home">🏠 Home</button><button data-page="survey">📝 Health survey</button><button data-page="tracker">📅 Daily tracker</button><button data-page="food">🍽️ Food log</button><button data-page="quiz">🧠 Quiz & facts</button><button data-page="coach">🤖 NutriRoast</button><button data-page="report">📈 Reports</button><button data-page="challenge">🏆 Challenges</button>
+</div></aside>
+<main>
+<section class="content active" id="home">
+<div class="hero"><div><span class="pill">YOUR FUN HEALTH COMPANION</span><h1>Eat smart.<br>Live better.<br>Laugh a little.</h1><p>Small healthy habits, big changes. Let's make health awareness fun—not another boring lecture.</p><button onclick="openSurvey()">Start my health journey →</button></div><div class="mascot" aria-label="Broccoli mascot">🥦</div></div>
+<div class="joke"><b>Today's health joke 😂</b><div id="dailyJoke">Your body is not a dustbin. Even your stomach has standards!</div><button class="ghost small" onclick="newJoke()">Another joke</button></div>
+<div class="sectionhead"><h2>Your daily snapshot</h2><span class="pill" id="dateLabel"></span></div>
+<div class="grid">
+<div class="card"><div class="emoji">💧</div><div class="sub">Water today</div><div class="stat"><span id="homeWater">0</span> glasses</div><div class="progress"><i id="waterBar" style="width:0%"></i></div><button class="secondary small" onclick="addWater(1)">+ Glass</button></div>
+<div class="card"><div class="emoji">🍎</div><div class="sub">Fruit servings</div><div class="stat" id="homeFruit">0</div><button class="secondary small" onclick="addFruit(1)">+ Serving</button></div>
+<div class="card"><div class="emoji">🏃</div><div class="sub">Activity minutes</div><div class="stat" id="homeMove">0 min</div><button class="secondary small" onclick="addMove(10)">+10 min</button></div>
+</div>
+<div class="sectionhead"><h2>Quick actions</h2></div><div class="grid two"><div class="card"><h3>📝 Health survey</h3><p class="sub">Learn your habits with funny feedback.</p><button onclick="openSurvey()">Take survey</button></div><div class="card"><h3>🧠 Myth or fact?</h3><p class="sub">Test your nutrition knowledge.</p><button onclick="go('quiz')">Play quiz</button></div></div>
+</section>
+<section class="content" id="survey">
+<div class="sectionhead"><h2>🥗 Health-awareness survey</h2><span class="pill" id="surveyProgress">0 / 10</span></div><p class="sub">No judgement—only gentle jokes. Choose an answer for each question.</p><div id="surveyQuestions"></div><button onclick="finishSurvey()">Save my survey & see results</button><div class="card hide" id="surveyResult"></div>
+</section>
+<section class="content" id="tracker">
+<div class="sectionhead"><h2>📅 Daily tracker</h2><input type="date" id="trackDate" onchange="renderTracker()"></div>
+<div class="grid">
+<div class="card"><div class="emoji">💧</div><h3>Water</h3><div class="stat" id="trackWater">0</div><button class="secondary" onclick="addWater(1)">+1 glass</button><button class="ghost small" onclick="addWater(-1)">−1</button></div>
+<div class="card"><div class="emoji">🍎</div><h3>Fruit servings</h3><div class="stat" id="trackFruit">0</div><button class="secondary" onclick="addFruit(1)">+1 serving</button><button class="ghost small" onclick="addFruit(-1)">−1</button></div>
+<div class="card"><div class="emoji">🏃</div><h3>Activity</h3><div class="stat" id="trackMove">0 min</div><button class="secondary" onclick="addMove(10)">+10 min</button><button class="ghost small" onclick="addMove(-10)">−10 min</button></div>
+</div>
+<div class="grid two" style="margin-top:14px"><div class="card"><div class="emoji">😴</div><h3>Sleep hours</h3><div class="field"><input id="sleepInput" type="number" min="0" max="24" step=".5" placeholder="Hours slept"></div><button onclick="saveSleep()">Save sleep</button></div><div class="card"><div class="emoji">😊</div><h3>Mood check-in</h3><div class="choices" id="moods"><button onclick="setMood('😊 Good')">😊 Good</button><button onclick="setMood('😐 Okay')">😐 Okay</button><button onclick="setMood('😟 Low')">😟 Low</button></div><p id="moodMsg" class="sub"></p></div></div>
+<div class="card" style="margin-top:14px"><h3>🗂️ Saved day summary</h3><div id="daySummary"></div></div>
+</section>
+<section class="content" id="food">
+<div class="sectionhead"><h2>🍽️ Food diary</h2><span class="pill">Demo nutrition values</span></div>
+<div class="card"><div class="formrow"><div class="field"><label>Meal</label><select id="mealType"><option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Snack</option></select></div><div class="field"><label>Food item</label><input id="foodName" placeholder="e.g. idli, banana, dal"></div><div class="field"><label>Estimated calories</label><input id="foodCalories" type="number" placeholder="Optional"></div></div><button onclick="addFood()">Add meal</button></div>
+<div class="card" style="margin-top:14px"><h3>Today's meals</h3><div id="foodList"></div></div>
+</section>
+<section class="content" id="quiz">
+<div class="sectionhead"><h2>🧠 Myth vs fact mini quiz</h2><span class="pill">Learn + earn XP</span></div><div class="card" id="quizCard"><h3 id="quizQuestion"></h3><div id="quizOptions"></div><p id="quizFeedback"></p><button id="nextQuiz" class="hide" onclick="nextQuiz()">Next question</button></div>
+<div class="card" style="margin-top:14px"><h3>💡 Random health fact</h3><p id="factText"></p><button class="secondary" onclick="newFact()">Another fact</button></div>
+</section>
+<section class="content" id="coach">
+<div class="sectionhead"><h2>🤖 NutriRoast (friendly edition)</h2></div><div class="hero"><div><h2>Roast the habit, not the human.</h2><p>Pick a habit and get a gentle joke plus a practical tip.</p></div><div class="mascot">🤖</div></div>
+<div class="card" style="margin-top:14px"><div class="field"><label>Choose a topic</label><select id="roastTopic"><option value="water">Water</option><option value="sleep">Sleep</option><option value="fruit">Fruit & vegetables</option><option value="movement">Movement</option><option value="screen">Screen time</option><option value="fastfood">Fast food</option></select></div><button onclick="roast()">Get my roast & tip</button><div class="joke hide" id="roastOutput"></div></div>
+</section>
+<section class="content" id="report">
+<div class="sectionhead"><h2>📈 Your progress report</h2></div><div class="grid"><div class="card"><span class="emoji">⭐</span><div class="sub">XP earned</div><div class="stat" id="xp">0</div></div><div class="card"><span class="emoji">🔥</span><div class="sub">Habit streak</div><div class="stat" id="streak">0 days</div></div><div class="card"><span class="emoji">📝</span><div class="sub">Survey score</div><div class="stat" id="score">Not yet</div></div></div>
+<div class="card" style="margin-top:14px"><h3>Last 7 days overview</h3><div id="weekly"></div><p class="sub">This demo tracks self-reported habits. It is not a medical assessment.</p></div>
+</section>
+<section class="content" id="challenge">
+<div class="sectionhead"><h2>🏆 Habit challenges</h2></div><div class="grid two">
+<div class="card"><span class="badge">💧</span><h3>Hydration helper</h3><p>Log water each day. Aim for a healthy routine that suits your needs.</p><button onclick="addWater(1)">Log a glass + XP</button></div>
+<div class="card"><span class="badge">🍎</span><h3>Fruit fan club</h3><p>Add fruit servings and give your snack choices a little variety.</p><button onclick="addFruit(1)">Log fruit + XP</button></div>
+<div class="card"><span class="badge">🚶</span><h3>Move a little</h3><p>Try a short walk, stretch or activity break when possible.</p><button onclick="addMove(10)">Log 10 minutes + XP</button></div>
+<div class="card"><span class="badge">🧠</span><h3>Knowledge quest</h3><p>Play the quiz and learn a nutrition fact along the way.</p><button onclick="go('quiz')">Start quiz</button></div>
+</div><div class="card" style="margin-top:14px"><h3>🎖️ Your badges</h3><div id="badges"></div></div>
+</section>
+<div class="footer">Nutribuddi demo · Wellness awareness, not medical advice · Your browser stores demo records locally</div>
+</main>
+</div>
+</div>
+<div class="modal" id="loginModal"><div class="modalbox"><h2>👋 Welcome to Nutribuddi</h2><p>Let's make healthy habits less boring.</p><div class="field"><label>Your name (optional for guest)</label><input id="userName" placeholder="What should we call you?"></div><div class="field"><label>Choose how to continue</label><select id="loginMode"><option>Continue as guest</option><option>Demo sign-in (local only)</option></select></div><button onclick="startUser()">Let's go!</button><button class="ghost" onclick="closeModal()">Maybe later</button><p class="sub">Prototype sign-in only; no real account or server authentication yet.</p></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const jokes=["Your body is not a dustbin. Even your stomach has standards!","Your kidneys have sent a reminder letter. It says: WATER, please.","Walking to the fridge is a journey—but your fitness tracker is not fooled.","Your brain is requesting maintenance. Please schedule sleep.","Broccoli is not mad. It is just disappointed you keep choosing fries.","Your burger knows your name by now. Maybe introduce it to a salad.","Your water bottle is tired of being a decorative accessory.","Your eyes need a vacation from that screen. Blink, superstar!"];
+const facts=["A varied diet helps you get different nutrients. Rainbow plate—not rainbow candy!","Water needs vary with activity, weather and individual health. Listen to your body's thirst.","Regular movement can benefit physical and mental well-being. Tiny movement breaks count.","Sleep supports attention, memory and overall well-being.","Fruits and vegetables provide fiber and many vitamins and minerals.","Nutrition labels help compare products. Marketing claims aren't the whole story."];
+const qs=[
+{q:"How often do you eat breakfast?",opts:["Almost daily","Sometimes","Rarely"],j:"Your morning stomach has opened a missing-person case."},
+{q:"How many servings of fruit do you usually eat per day?",opts:["0","1","2 or more"],j:"The fruit bowl is ready for its comeback tour."},
+{q:"How often do vegetables appear in your meals?",opts:["Most days","Some days","Almost never"],j:"Broccoli is patiently waiting outside your plate."},
+{q:"How many glasses of water do you drink on a typical day?",opts:["1–3","4–6","7+","Not sure"],j:"Your water bottle called. It misses being useful."},
+{q:"How often do you have sugary drinks?",opts:["Rarely","Sometimes","Often"],j:"The soda can is not your hydration supervisor."},
+{q:"How often do you do physical activity?",opts:["Most days","1–3 days a week","Rarely"],j:"Stretching counts. Running from responsibilities is a different sport."},
+{q:"How many hours do you usually sleep?",opts:["Less than 5","5–7","7–9","More than 9"],j:"Your pillow is ready to negotiate a better schedule."},
+{q:"How often do you eat fast food?",opts:["Rarely","1–2 times/week","3+ times/week"],j:"Your delivery app thinks you two are in a committed relationship."},
+{q:"How confident are you about reading nutrition labels?",opts:["Confident","Somewhat","Not yet"],j:"Tiny letters, big decisions. We'll practice together."},
+{q:"What is your main health goal?",opts:["Eat balanced meals","Drink more water","Move more","Sleep better","Learn nutrition"],j:"Your goal has entered the chat. Let's make it achievable."}
+];
+const quiz=[
+{q:"Does everyone need exactly 8 glasses of water each day?",a:["Yes, exactly","No—needs vary","Only on weekends"],correct:1,why:"Water needs vary by person, activity, weather and health. Hydration isn't a one-size-fits-all number."},
+{q:"Which is a good source of dietary fiber?",a:["Fruit, vegetables and whole grains","Only soda","Candy"],correct:0,why:"Fiber is found in plant foods such as fruits, vegetables, legumes and whole grains."},
+{q:"Is skipping sleep a good way to gain extra study time every day?",a:["Yes, always","No, sleep supports health and learning","Only before exams"],correct:1,why:"Sleep is important for attention, memory and well-being. All-nighters are not a sustainable study strategy."},
+{q:"Which is a balanced approach to food?",a:["Only one food group","Variety across food groups","Never eat treats"],correct:1,why:"A varied eating pattern helps supply different nutrients. No single food makes or breaks health."},
+{q:"Do health apps replace medical professionals?",a:["Yes","No","Only if the app has emojis"],correct:1,why:"Apps can support awareness and habits, but they do not diagnose or replace professional care."}
+];
+let state=loadState(),surveyAnswers={},quizIndex=0,quizAnswered=false;
+function today(){return new Date().toISOString().slice(0,10)}
+function loadState(){try{return JSON.parse(localStorage.getItem("nutribuddiDemo")||"{}")}catch(e){return {}}}
+function save(){localStorage.setItem("nutribuddiDemo",JSON.stringify(state));renderAll()}
+function day(d=today()){if(!state.days)state.days={};if(!state.days[d])state.days[d]={water:0,fruit:0,move:0,foods:[],sleep:null,mood:null};return state.days[d]}
+function xpAdd(n=5){state.xp=(state.xp||0)+n;toast("+"+n+" XP! Nice habit ✨")}
+function toast(t){let el=document.getElementById("toast");el.textContent=t;el.style.display="block";setTimeout(()=>el.style.display="none",2100)}
+function go(page){document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.querySelectorAll(".content").forEach(c=>c.classList.toggle("active",c.id===page));renderAll()}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>go(b.dataset.page));
+function newJoke(){document.getElementById("dailyJoke").textContent=jokes[Math.floor(Math.random()*jokes.length)]}
+function newFact(){document.getElementById("factText").textContent=facts[Math.floor(Math.random()*facts.length)]}
+function openSurvey(){go("survey")}
+function openModal(){document.getElementById("loginModal").style.display="flex"}
+function closeModal(){document.getElementById("loginModal").style.display="none"}
+function startUser(){state.name=document.getElementById("userName").value.trim()||"Guest";state.mode=document.getElementById("loginMode").value;save();closeModal();toast("Welcome, "+state.name+"!")}
+document.getElementById("profileBtn").onclick=openModal;
+function buildSurvey(){let el=document.getElementById("surveyQuestions");el.innerHTML=qs.map((q,i)=>`<div class="surveyq"><label>${i+1}. ${q.q}</label><div class="choices">${q.opts.map(o=>`<button type="button" onclick="pick(${i},this,'${o.replace(/'/g,"\\'")}')">${o}</button>`).join("")}</div><p class="sub" id="sj${i}">💬 ${q.j}</p></div>`).join("")}
+function pick(i,btn,val){surveyAnswers[i]=val;btn.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("chosen"));btn.classList.add("chosen");document.getElementById("surveyProgress").textContent=Object.keys(surveyAnswers).length+" / "+qs.length}
+function finishSurvey(){if(Object.keys(surveyAnswers).length<qs.length){toast("Answer all questions first—your broccoli examiner is waiting 🥦");return}state.survey={answers:surveyAnswers,date:today()};state.surveyScore=Math.round(Object.keys(surveyAnswers).length/qs.length*100);xpAdd(20);save();let r=document.getElementById("surveyResult");r.classList.remove("hide");r.innerHTML=`<h3>🎉 Survey complete!</h3><p>You answered all ${qs.length} questions. This is a habit-awareness snapshot, not a medical score.</p><div class="stat">Awareness completion: ${state.surveyScore}%</div><p>Friendly tip: choose one small habit to focus on this week. Big changes can start tiny.</p>`}
+function getSelectedDate(){return document.getElementById("trackDate").value||today()}
+function addWater(n){let d=day(getSelectedDateSafe());d.water=Math.max(0,d.water+n);if(n>0)xpAdd(2);save()}
+function getSelectedDateSafe(){let el=document.getElementById("trackDate");return el&&el.value?el.value:today()}
+function addFruit(n){let d=day(getSelectedDateSafe());d.fruit=Math.max(0,d.fruit+n);if(n>0)xpAdd(2);save()}
+function addMove(n){let d=day(getSelectedDateSafe());d.move=Math.max(0,d.move+n);if(n>0)xpAdd(3);save()}
+function saveSleep(){let val=parseFloat(document.getElementById("sleepInput").value);if(isNaN(val)||val<0||val>24){toast("Enter sleep hours between 0 and 24");return}day(getSelectedDateSafe()).sleep=val;xpAdd(2);save()}
+function setMood(m){day(getSelectedDateSafe()).mood=m;save();toast("Mood saved—thanks for checking in")}
+function addFood(){let name=document.getElementById("foodName").value.trim();if(!name){toast("Add a food name first");return}let d=day();d.foods.push({meal:document.getElementById("mealType").value,name,cal:parseInt(document.getElementById("foodCalories").value)||0});document.getElementById("foodName").value="";document.getElementById("foodCalories").value="";xpAdd(3);save()}
+function renderTracker(){let d=day(getSelectedDateSafe());document.getElementById("trackWater").textContent=d.water;document.getElementById("trackFruit").textContent=d.fruit;document.getElementById("trackMove").textContent=d.move+" min";document.getElementById("sleepInput").value=d.sleep??"";document.getElementById("moodMsg").textContent=d.mood?("Saved mood: "+d.mood):"Mood check-in is optional.";document.getElementById("daySummary").innerHTML=`<p>💧 ${d.water} glasses water · 🍎 ${d.fruit} fruit servings · 🏃 ${d.move} activity minutes · 😴 ${d.sleep??"Not logged"} sleep hours · ${d.mood??"Mood not logged"}</p><p>${d.foods.length} meal entries on this date.</p>`}
+function renderFood(){let foods=day().foods||[];document.getElementById("foodList").innerHTML=foods.length?foods.map((f,i)=>`<p>🍽️ <b>${f.meal}</b>: ${esc(f.name)} ${f.cal?("— ~"+f.cal+" kcal"):""} <button class="ghost small" onclick="removeFood(${i})">Delete</button></p>`).join(""):"<p class='sub'>No meals logged yet. Add your first meal above.</p>"}
+function removeFood(i){day().foods.splice(i,1);save()}
+function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function roast(){let t=document.getElementById("roastTopic").value;let out={water:"Your water bottle has been promoted to decoration. 😭 Tip: keep it visible and sip regularly; needs vary by person.",sleep:"Your pillow has filed a complaint about overtime. 😴 Tip: try a consistent sleep schedule and a calming wind-down.",fruit:"Fruit is wondering if you still know each other. 🍎 Tip: keep easy-to-grab fruit around and add it to a meal or snack.",movement:"Your chair knows your full life story. 🪑 Tip: break up long sitting with short movement breaks.",screen:"Your screen is getting more attention than your friends. 👀 Tip: pause, blink, stretch and take regular screen breaks.",fastfood:"The delivery app has your portrait on its wall. 🍔 Tip: balance convenience meals with varied foods when possible."};let e=document.getElementById("roastOutput");e.classList.remove("hide");e.innerHTML=out[t]}
+function showQuiz(){let q=quiz[quizIndex];document.getElementById("quizQuestion").textContent=q.q;document.getElementById("quizOptions").innerHTML=q.a.map((a,i)=>`<button class="quizopt" onclick="answerQuiz(${i})">${a}</button>`).join("");document.getElementById("quizFeedback").textContent="";document.getElementById("nextQuiz").classList.add("hide");quizAnswered=false}
+function answerQuiz(i){if(quizAnswered)return;quizAnswered=true;let q=quiz[quizIndex];document.getElementById("quizFeedback").textContent=(i===q.correct?"🎉 Correct! ":"💡 Good try! ")+q.why;if(i===q.correct)xpAdd(5);document.getElementById("nextQuiz").classList.remove("hide")}
+function nextQuiz(){quizIndex=(quizIndex+1)%quiz.length;showQuiz()}
+function renderReport(){document.getElementById("xp").textContent=state.xp||0;document.getElementById("score").textContent=state.surveyScore==null?"Not yet":state.surveyScore+"%";let days=Object.keys(state.days||{}).sort().slice(-7);document.getElementById("weekly").innerHTML=days.length?days.map(d=>{let x=state.days[d];return `<p><b>${d}</b> — 💧${x.water} · 🍎${x.fruit} · 🏃${x.move} min · 😴${x.sleep??"—"} h</p>`}).join(""):"<p class='sub'>Start logging habits to see your history here.</p>";document.getElementById("streak").textContent=calcStreak()+" days";let badgeList=[];if((state.xp||0)>=10)badgeList.push("🌱 Habit starter");if((state.xp||0)>=50)badgeList.push("⭐ 50 XP");if(state.survey)badgeList.push("📝 Survey completed");if(Object.values(state.days||{}).some(d=>d.water>=5))badgeList.push("💧 Hydration helper");document.getElementById("badges").innerHTML=badgeList.length?badgeList.map(b=>`<span class="pill" style="margin:4px">${b}</span>`).join(""):"<p class='sub'>Complete actions to unlock badges.</p>"}
+function calcStreak(){let n=0,d=new Date();for(let i=0;i<30;i++){let k=d.toISOString().slice(0,10);if(state.days&&state.days[k]&&(state.days[k].water||state.days[k].fruit||state.days[k].move||state.days[k].foods?.length)){n++;d.setDate(d.getDate()-1)}else break}return n}
+function renderAll(){let d=day();document.getElementById("dateLabel").textContent=new Date().toLocaleDateString();document.getElementById("homeWater").textContent=d.water;document.getElementById("homeFruit").textContent=d.fruit;document.getElementById("homeMove").textContent=d.move+" min";document.getElementById("waterBar").style.width=Math.min(d.water/8*100,100)+"%";document.getElementById("profileBtn").textContent="👤 "+(state.name||"Guest");if(!document.getElementById("trackDate").value)document.getElementById("trackDate").value=today();renderTracker();renderFood();renderReport()}
+document.getElementById("language").onchange=e=>{toast(e.target.value==="kn"?"ಕನ್ನಡ ಆಯ್ಕೆ demo: ಭಾಷಾ UI ಮುಂದಿನ ಹಂತದಲ್ಲಿ ಸಂಪೂರ್ಣ ಅನುವಾದಿಸಲಾಗುತ್ತದೆ.":e.target.value==="hi"?"हिंदी चयन demo: पूर्ण अनुवाद अगले चरण में जोड़ा जाएगा.":"Language selected")};
+buildSurvey();newFact();showQuiz();renderAll();
+</script>
+</body></html>
